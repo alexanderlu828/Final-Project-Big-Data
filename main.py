@@ -15,7 +15,7 @@ X_scaled = scaler.fit_transform(X)
 # === Step 3: Fit Gaussian Mixture Model ===
 n_clusters = 15  # For 4D data: 4n - 1 = 15, 6D data: 4n - 1 = 23
 
-gmm = GaussianMixture(n_components=n_clusters, covariance_type="tied", random_state=42)
+gmm = GaussianMixture(n_components=n_clusters, covariance_type="diag", random_state=42)
 gmm_labels = gmm.fit_predict(X_scaled)
 
 # === Save the predictions for submission ===
