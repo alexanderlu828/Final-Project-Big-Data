@@ -4,6 +4,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
+# Public dataset
 # === Step 1: Load the public dataset ===
 df = pd.read_csv("public_data.csv")  # Replace with your actual path
 X = df.drop(columns=["id"])  # Drop the ID column
@@ -40,9 +41,9 @@ plt.tight_layout()
 # === Save the visualization ===
 plt.savefig("public_results.png", dpi=300)
 
-# Private dataset
 
-# === Step 1: Load the public dataset ===
+# Private dataset
+# === Step 1: Load the private dataset ===
 df = pd.read_csv("private_data.csv")  # Replace with your actual path
 X = df.drop(columns=["id"])  # Drop the ID column
 
