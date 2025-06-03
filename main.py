@@ -21,7 +21,7 @@ X_pca_qt = pca.fit_transform(X_qt)
 # === Step 4: Fit Gaussian Mixture Model ===
 n_clusters = 15  # For 4D data: 4n - 1 = 15, 6D data: 4n - 1 = 23
 
-gmm = GaussianMixture(n_components=n_clusters, covariance_type="full", random_state=42)
+gmm = GaussianMixture(n_components=n_clusters, covariance_type="tied", random_state=42)
 gmm_labels = gmm.fit_predict(X_pca_qt)
 
 # === Save the predictions for submission ===
