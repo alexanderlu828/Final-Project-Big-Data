@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.mixture import GaussianMixture
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import QuantileTransformer
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
@@ -9,8 +10,11 @@ df = pd.read_csv("public_data.csv")  # Replace with your actual path
 X = df.drop(columns=["id"])  # Drop the ID column
 
 # === Step 2: Standardize the data ===
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
+# scaler = StandardScaler()
+# X_scaled = scaler.fit_transform(X)
+
+qt = QuantileTransformer(output_distribution="normal")
+X_scaled = qt.fit_transform(X)
 
 # === Step 3: Fit Gaussian Mixture Model ===
 n_clusters = 15  # For 4D data: 4n - 1 = 15, 6D data: 4n - 1 = 23
